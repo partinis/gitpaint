@@ -1,0 +1,9 @@
+name: 'Text on github contribution graph'
+inputs:
+  github_user_name:
+    description: 'GitHub token'
+    default: 'test'
+    required: true
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
