@@ -12,7 +12,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.generateSvg = void 0;
 const cheerio_1 = __importDefault(__nccwpck_require__(4612));
-const generateSvg = (siteSource, text) => {
+const fs = __nccwpck_require__(7147);
+const generateSvg = (siteSource, text, svgFileName) => {
     var _a, _b, _c;
     var pixels = [
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x5f, 0x00, 0x00, 0x00, 0x07,
@@ -57,6 +58,7 @@ const generateSvg = (siteSource, text) => {
         0x08, 0x00,
     ];
     const $ = cheerio_1.default.load(siteSource);
+    $(".js-calendar-graph-svg").attr("xmlns", "http://www.w3.org/2000/svg");
     $(".js-calendar-graph-svg").prepend("<style></style>");
     let styleElement = $(".js-calendar-graph-svg style");
     styleElement.prepend("\n    :root {\n" +
@@ -161,7 +163,7 @@ const generateSvg = (siteSource, text) => {
             }
         }
     }
-    return cheerio_1.default.html($(".js-calendar-graph-svg"));
+    fs.writeFileSync(svgFileName, cheerio_1.default.html($(".js-calendar-graph-svg")));
 };
 exports.generateSvg = generateSvg;
 
@@ -227,11 +229,10 @@ function run() {
         //     core.setFailed("Can only run on pull requests!");
         //     return;
         // }
-        const svg = (0, generateSvg_1.generateSvg)(
+        (0, generateSvg_1.generateSvg)(
         // await loadSite(core.getInput("github_user_name")),
-        // core.getInput("text")
-        yield (0, loadSite_1.loadSite)("jasineri"), "JASINERI");
-        console.log(svg);
+        // core.getInput("text"), core.getInput("svg_file_name")
+        yield (0, loadSite_1.loadSite)("jasineri"), "JASINERI", "graph.svg");
     });
 }
 // Our main method: call the run() function and report any errors
