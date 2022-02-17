@@ -52,7 +52,7 @@ export const generateSvg = (siteSource: string, text: string, svgFileName) => {
   $(".js-calendar-graph-svg text").remove();
   svgElement.prepend("<style></style>");
   svgElement.append(
-    '<a href="https://github.com/jasineri/gitpaint"><text x="24" y="132" font-size="0.6em" fill="blue">Get your own graph on jasineri/gitpaint</text></a>'
+    '<a href="https://github.com/jasineri/gitartwork"><text x="24" y="132" font-size="0.6em" fill="blue">Get your own graph on jasineri/gitartwork</text></a>'
   );
   let styleElement = $(".js-calendar-graph-svg style");
   styleElement.prepend(
