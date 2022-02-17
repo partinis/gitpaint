@@ -58,8 +58,10 @@ const generateSvg = (siteSource, text, svgFileName) => {
         0x08, 0x00,
     ];
     const $ = cheerio_1.default.load(siteSource);
-    $(".js-calendar-graph-svg").attr("xmlns", "http://www.w3.org/2000/svg");
-    $(".js-calendar-graph-svg").prepend("<style></style>");
+    let svgElement = $(".js-calendar-graph-svg");
+    svgElement.attr("xmlns", "http://www.w3.org/2000/svg");
+    $(".js-calendar-graph-svg text").remove();
+    svgElement.prepend("<style></style>");
     let styleElement = $(".js-calendar-graph-svg style");
     styleElement.prepend("\n    :root {\n" +
         "        --c0: rgba(27, 31, 35, 0.06);\n" +
@@ -163,7 +165,7 @@ const generateSvg = (siteSource, text, svgFileName) => {
             }
         }
     }
-    fs.writeFileSync(svgFileName, cheerio_1.default.html($(".js-calendar-graph-svg")));
+    fs.writeFileSync(svgFileName, cheerio_1.default.html(svgElement));
 };
 exports.generateSvg = generateSvg;
 
