@@ -48,8 +48,12 @@ export const generateSvg = (siteSource: string, text: string, svgFileName) => {
   const $ = cheerio.load(siteSource);
   let svgElement = $(".js-calendar-graph-svg");
   svgElement.attr("xmlns", "http://www.w3.org/2000/svg");
+  svgElement.attr("height", "148");
   $(".js-calendar-graph-svg text").remove();
   svgElement.prepend("<style></style>");
+  svgElement.append(
+    '<a href="https://github.com/jasineri/gitpaint"><text x="24" y="132" font-size="0.6em" fill="blue">Get your own graph on jasineri/gitpaint</text></a>'
+  );
   let styleElement = $(".js-calendar-graph-svg style");
   styleElement.prepend(
     "\n    :root {\n" +
