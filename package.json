@@ -1,5 +1,5 @@
 {
-  "name": "gitpaint",
+  "name": "gitartwork",
   "version": "1.0.0",
   "description": "<p align=\"center\">   <a href=\"https://github.com/actions/typescript-action/actions\"><img alt=\"typescript-action status\" src=\"https://github.com/actions/typescript-action/workflows/build-test/badge.svg\"></a> </p>",
   "main": "index.js",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jasineri/gitpaint.git"
+    "url": "git+https://github.com/jasineri/gitartwork.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jasineri/gitpaint/issues"
+    "url": "https://github.com/jasineri/gitartwork/issues"
   },
-  "homepage": "https://github.com/jasineri/gitpaint#readme",
+  "homepage": "https://github.com/jasineri/gitartwork#readme",
   "dependencies": {
     "@actions/core": "^1.6.0",
     "@actions/github": "^5.0.0"
